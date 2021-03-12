@@ -1,5 +1,23 @@
 #!/bin/bash
 
-gcc -o ./exemplo01/exemplo01.nathan ./exemplo01/exemplo01.c++ -lglut -lGL -lGLU -lm
+# Configs
+  extension_out="nathan"
+  extension_in="c++"
+  file_name="exemplo02"
+  path="${file_name}"
+  output_file_path="${path}/${file_name}.${extension_out}"
+  input_file_path="${path}/${file_name}.${extension_in}"
 
-./exemplo01/exemplo01.nathan
+# Debug variables
+  # echo $extension_out
+  # echo $extension_in
+  # echo $file_name
+  # echo $path
+
+  # echo output_file
+  # echo input_file
+
+# Script Running
+  gcc -o ${output_file_path} ${input_file_path} -lglut -lGL -lGLU -lm    # Build
+
+  ./${output_file_path}                                                  # Run
