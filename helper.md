@@ -15,3 +15,15 @@ Exemplo:
 Exemplo:
 
 - `./exemplo02.nathan`
+
+### Arquivo .bash (esse é maaassa)
+
+Sim é possível criar um arquivo .bash também para fazer as rotinas de modo mais prático.
+
+caaaso aconteça isso na hora de executar:
+
+`bash: ./build_and_run.bash: Permission denied`
+
+é só colocar esse comando ;)
+
+`chmod 777 build_and_run.bash`
