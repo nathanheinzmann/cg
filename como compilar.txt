@@ -1,1 +1,0 @@
-gcc -o exemplo1 exemplo1.c++ -lglut -lGL -lGLU -lm
