@@ -1,25 +1,25 @@
-#include<stdio.h>
-#include<GL/glut.h>
+#include <stdio.h>
+#include <GL/glut.h>
 
-
-void Desenha (void){
-
+void Desenha(void)
+{
 }
 
-void Teclado (void){
-
+void Teclado(void)
+{
 }
 
-void Inicializa (void){
-
+void Inicializa(void)
+{
 }
 
-int main (int argc, char *argv[]) {
-    glutInit ( &argc, argv );
+int main(int argc, char *argv[])
+{
+    glutInit(&argc, argv);
 
-    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 
-    glutInitWindowSize(300,300);
+    glutInitWindowSize(300, 300);
 
     glutInitWindowPosition(10, 10);
 
@@ -31,5 +31,5 @@ int main (int argc, char *argv[]) {
 
     system("pause");
 
-    return(0);
+    return (0);
 }
