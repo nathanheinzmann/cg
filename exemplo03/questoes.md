@@ -40,3 +40,7 @@ Isso é obtido através da intersção do sólido de cor com o plano de Maxwell,
 ## 2.6
 
 Essa linha que conecta as cores espectrais extremas (vermelho e violeta), representa o limite de percepção de cor humana
+
+## 2.7
+
+p : I c R -> S c R³
