@@ -38,3 +38,5 @@ Cada distribuição espectral se relaciona com um ponto no espaço das cores, se
 Isso é obtido através da intersção do sólido de cor com o plano de Maxwell, baseado nisso, pode-se traçar uma reta do com origem no ponto acromático até a borda, e na borda encontraremos o comprimento de onda dominante.
 
 ## 2.6
+
+Essa linha que conecta as cores espectrais extremas (vermelho e violeta), representa o limite de percepção de cor humana
