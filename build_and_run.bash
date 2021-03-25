@@ -3,7 +3,7 @@
 # Configs
   extension_out="nathan"
   extension_in="c++"
-  file_name="exemplo02"
+  file_name="exemplo03"
   path="${file_name}"
   output_file_path="${path}/${file_name}.${extension_out}"
   input_file_path="${path}/${file_name}.${extension_in}"
