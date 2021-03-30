@@ -6,17 +6,23 @@ float rf = referencia / 2;
 float ri = -rf;
 
 float houseHeight = 3;
-float houseWidth = 4;
+float houseWidth = 4.2;
 float sideHouseWidth = 1;
+
 float doorHeight = 2;
 float doorWidth = 0.8;
-float doorBorderHeight = doorHeight + (doorHeight * 0.12);
-float doorBorderWidth = doorWidth + (doorWidth * 0.12);
+float doorBorderHeight = doorHeight + 0.15;
+float doorBorderWidth = doorWidth + 0.15;
+
 float frontalWindowHeight = 0.8;
 float frontalWindowWidth = 0.8;
+float windowBorderHeight = frontalWindowHeight + 0.15;
+float windowBorderWidth = frontalWindowWidth + 0.15;
+
 float sizeWindowHeight = 0.8;
 float sizeWindowWidth = 0.5;
 float sizeWindowAngle = 0.5;
+
 float halfRoofHeight = houseWidth;
 float halfRoofWidth = houseWidth;
 
@@ -30,7 +36,7 @@ void Porta()
 {
   float proportion = 0.1;
   float xPosition = 0.05;
-  float yPosition = 0;
+  float yPosition = 0.05 * proportion;
 
   glBegin(GL_QUADS);
 
@@ -137,16 +143,33 @@ void Teto()
 void BordaPorta()
 {
   float proportion = 0.1;
-  float xPosition = 0;
+  float xPosition = 0.42 * proportion;
   float yPosition = 0;
 
   glBegin(GL_QUADS);
 
-  glColor3f(0.8, 0.4, 0.06);
+  glColor3f(1, 1, 1);
   glVertex2f((0 * proportion) + xPosition, (0 * proportion) + yPosition);
-  glVertex2f((0 * proportion) + xPosition, (doorHeight * proportion) + yPosition);
-  glVertex2f((doorWidth * proportion) + xPosition, (doorHeight * proportion) + yPosition);
-  glVertex2f((doorWidth * proportion) + xPosition, (0 * proportion) + yPosition);
+  glVertex2f((0 * proportion) + xPosition, (doorBorderHeight * proportion) + yPosition);
+  glVertex2f((doorBorderWidth * proportion) + xPosition, (doorBorderHeight * proportion) + yPosition);
+  glVertex2f((doorBorderWidth * proportion) + xPosition, (0 * proportion) + yPosition);
+
+  glEnd();
+}
+
+void BordaJanela()
+{
+  float proportion = 0.1;
+  float xPosition = 1.9 * proportion;
+  float yPosition = 1.45 * proportion;
+
+  glBegin(GL_QUADS);
+
+  glColor3f(1, 1, 1);
+  glVertex2f((0 * proportion) + xPosition, (0 * proportion) + yPosition);
+  glVertex2f((0 * proportion) + xPosition, (windowBorderHeight * proportion) + yPosition);
+  glVertex2f((windowBorderWidth * 2 * proportion) + xPosition, (windowBorderHeight * proportion) + yPosition);
+  glVertex2f((windowBorderWidth * 2 * proportion) + xPosition, (0 * proportion) + yPosition);
 
   glEnd();
 }
@@ -173,7 +196,9 @@ void Desenha(void)
   Background();
   ParedeFrente();
   ParedeLateral();
+  BordaPorta();
   Porta();
+  BordaJanela();
   JanelaFrontal();
   JanelaFrontal(0.29);
   JanelaLateral();
@@ -198,7 +223,7 @@ int main(int argc, char *argv[])
 
   glutInitWindowSize(600, 600);
 
-  glutInitWindowPosition(10, 10);
+  glutInitWindowPosition(2590, 10);
 
   glutCreateWindow("3o Exemplo");
 
