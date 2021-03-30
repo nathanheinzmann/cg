@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configs
-  file_name="exemplo03"
+  file_name="exemplo04"
 # No need to change these below
   extension_out="nathan"
   extension_in="c++"
