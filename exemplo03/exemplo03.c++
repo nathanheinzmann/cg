@@ -172,9 +172,9 @@ int main(int argc, char *argv[])
 
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 
-  glutInitWindowSize(600, 600);
+  glutInitWindowSize(800, 800);
 
-  glutInitWindowPosition(10, 10);
+  glutInitWindowPosition(200, 120);
 
   glutCreateWindow("3o Exemplo");
 
@@ -186,3 +186,4 @@ int main(int argc, char *argv[])
 
   return (0);
 }
+
