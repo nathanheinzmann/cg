@@ -19,7 +19,7 @@ void Lines()
   glVertex2f(0, ri);
   glVertex2f(0, rf);
 
-  glColor3f(0, 0, 0);
+  glColor3f(1, 1, 1);
   for (float i = ri; i < rf; i = i + 0.1)
   {
     glVertex2f(ri, i);
@@ -30,12 +30,14 @@ void Lines()
   glEnd();
 }
 
-void Desenha()
+void Triangulo()
 {
-  glClearColor(1, 1, 1, 0);
-  glClear(GL_COLOR_BUFFER_BIT);
-  Lines();
-  glFlush();
+  glBegin(GL_TRIANGLES);
+  glColor3f(0, 0, 0);
+  glVertex3f(-0.95, 0.25, 0);
+  glVertex3f(-0.65, 0.75, 0);
+  glVertex3f(-0.35, 0.25, 0);
+  glEnd();
 }
 
 void Teclado(unsigned char key, int x, int y)
@@ -95,14 +97,15 @@ void SistemaOcioso(void)
 {
 }
 
-void Triangulo()
+void Desenha()
 {
-  glBegin(GL_TRIANGLES);
-  glColor3f(0, 0, 1);
-  glVertex3f(-0.95, 0.25, 0);
-  glVertex3f(-0.65, 0.75, 0);
-  glVertex3f(-0.35, 0.25, 0);
-  glEnd();
+  glClearColor(0, 0, 0, 0);
+  glClear(GL_COLOR_BUFFER_BIT);
+  Lines();
+
+  Triangulo();
+
+  glFlush();
 }
 
 int main(int argc, char *argv[])
@@ -110,17 +113,15 @@ int main(int argc, char *argv[])
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
   glutInitWindowSize(500, 500);
-  glutInitWindowPosition(50, 50);
+  glutInitWindowPosition(0, 0);
   glutCreateWindow("Transformacoes Geometricas");
   glutDisplayFunc(Desenha);
   glutKeyboardFunc(Teclado);
   glutSpecialFunc(TeclasEspeciais);
-
   glutMouseFunc(GerenciaMouse);
   glutMotionFunc(MoveMouseBotaoPressionado);
   glutPassiveMotionFunc(MoveMouse);
   glutIdleFunc(SistemaOcioso);
-  // Inicializa();
   glutMainLoop();
   system("pause");
   return (0);
