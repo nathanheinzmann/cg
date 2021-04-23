@@ -136,9 +136,8 @@ void TrianlgeStrip()
   glEnd();
 }
 
-void Desenha(void)
+void Primitivas()
 {
-  Background();
   Lines();
   Points();
   Triangle();
@@ -147,6 +146,13 @@ void Desenha(void)
   TriangleFlower();
   TrianlgeStrip();
   QuadsArray();
+}
+
+void Desenha(void)
+{
+  Background();
+
+  Primitivas();
 
   glFlush();
 }

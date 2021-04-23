@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Configs
-  file_name="exemplo04"
+  file_name="labirinto"
 # No need to change these below
-  extension_out="nathan"
+  extension_out="exe"
   extension_in="c++"
   path="${file_name}"
   output_file_path="${path}/${file_name}.${extension_out}"
