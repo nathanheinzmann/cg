@@ -3,6 +3,7 @@
 #include "plano.h"
 #include "grid.h"
 #include "lineGenerator.h"
+#include "triangle.h"
 
 int x_translacao, y_translacao, angulo_rotacao = 0;
 float x_escala = 1, y_escala = 1;
@@ -12,18 +13,9 @@ float x = 0, y = 0, referencia = 2;
 float rf = referencia / 2;
 float ri = -rf;
 
-float trianglePositionY, trianglePositionX = 0;
-
-void Triangulo()
-{
-  int baseSizeTriangle = 0.1;
-  glBegin(GL_TRIANGLES);
-  glColor3f(0.4, 0.5, 0.1);
-  glVertex3f(-1 + trianglePositionX, 0 + trianglePositionY, 0);
-  glVertex3f(-1 + trianglePositionX, 0.1 + trianglePositionY, 0);
-  glVertex3f(-0.9 + trianglePositionX, 0.05 + trianglePositionY, 0);
-  glEnd();
-}
+float trianglePositionY = 0;
+float trianglePositionX = -1;
+char triangleDirection = 'r';
 
 void Teclado(unsigned char key, int x, int y)
 {
@@ -49,18 +41,26 @@ void TeclasEspeciais(int tecla, int x, int y)
 {
   if (tecla == GLUT_KEY_UP)
   {
+    trianglePositionY += 0.1;
+    triangleDirection = 'u';
     printf("tecla up\n");
   }
   if (tecla == GLUT_KEY_DOWN)
   {
+    trianglePositionY -= 0.1;
+    triangleDirection = 'd';
     printf("tecla down\n");
   }
   if (tecla == GLUT_KEY_LEFT)
   {
+    trianglePositionX -= 0.1;
+    triangleDirection = 'l';
     printf("tecla left\n");
   }
   if (tecla == GLUT_KEY_RIGHT)
   {
+    trianglePositionX += 0.1;
+    triangleDirection = 'r';
     printf("tecla right\n");
   }
   glutPostRedisplay();
@@ -82,14 +82,27 @@ void SistemaOcioso(void)
 {
 }
 
+void Labirinto()
+{
+  LineGenerator(-1, -0.4, 0, 'x');
+  LineGenerator(0, 0.2, -0.4, 'y');
+  LineGenerator(-0.4, -0.1, 0.2, 'x');
+  LineGenerator(0.2, -0.4, -0.1, 'y');
+  LineGenerator(-0.1, -0.8, -0.4, 'x');
+  LineGenerator(-0.4, -0.8, -0.8, 'y');
+  LineGenerator(-0.8, 0.2, -0.8, 'x');
+  LineGenerator(-0.8, 0.5, 0.2, 'y');
+  LineGenerator(0.2, 1, 0.5, 'x');
+}
+
 void Desenha()
 {
   glClearColor(0, 0, 0, 0);
   glClear(GL_COLOR_BUFFER_BIT);
   Grid(ri, rf);
-  LineGenerator(0.3, 0.9, -0.4, 'x');
+  Labirinto();
 
-  Triangulo();
+  Triangle(triangleDirection, trianglePositionX, trianglePositionY);
 
   glFlush();
 }
