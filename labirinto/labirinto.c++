@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <GL/glut.h>
 #include "plano.h"
+#include "grid.h"
+#include "lineGenerator.h"
 
 int x_translacao, y_translacao, angulo_rotacao = 0;
 float x_escala = 1, y_escala = 1;
@@ -12,76 +14,8 @@ float ri = -rf;
 
 float trianglePositionY, trianglePositionX = 0;
 
-void Lines()
-{
-  glBegin(GL_LINES);
-  glColor3f(0, 0, 1);
-  glVertex2f(ri, 0);
-  glVertex2f(rf, 0);
-  glVertex2f(0, ri);
-  glVertex2f(0, rf);
-
-  glColor3f(1, 1, 1);
-  for (float i = ri; i < rf; i = i + 0.1)
-  {
-    glVertex2f(ri, i);
-    glVertex2f(rf, i);
-    glVertex2f(i, ri);
-    glVertex2f(i, rf);
-  }
-  glEnd();
-}
-
-void Labirint()
-{
-  float x[] = {
-      -1,
-      -0.9,
-      -0.8,
-      -0.7,
-      -0.6,
-      -0.6,
-      -0.6,
-      -0.6,
-      -0.6,
-      -0.6,
-      -0.5,
-      -0.4,
-  };
-
-  float y[] = {
-      0,
-      0,
-      0,
-      0,
-      0,
-      -0.1,
-      -0.2,
-      -0.3,
-      -0.4,
-      -0.5,
-      -0.5,
-      -0.5,
-  };
-
-  int i = 0;
-  glBegin(GL_QUADS);
-  glColor3f(0, 0.2, 0.5);
-  for (i = 0; i < 12; i++)
-  {
-    glVertex2f(0 + x[i], 0.1 + y[i]);
-    glVertex2f(0 + x[i], 0 + y[i]);
-    glVertex2f(0.1 + x[i], 0 + y[i]);
-    glVertex2f(0.1 + x[i], 0.1 + y[i]);
-  }
-  glEnd();
-}
-
 void Triangulo()
 {
-  // float x = {-1, -0.8, -0.9, 0.3, 0.8};
-  // float y = {0, -0.2, 0.9, -0.3, 0.3};
-
   int baseSizeTriangle = 0.1;
   glBegin(GL_TRIANGLES);
   glColor3f(0.4, 0.5, 0.1);
@@ -152,8 +86,8 @@ void Desenha()
 {
   glClearColor(0, 0, 0, 0);
   glClear(GL_COLOR_BUFFER_BIT);
-  Lines();
-  Labirint();
+  Grid(ri, rf);
+  LineGenerator(0.3, 0.9, -0.4, 'x');
 
   Triangulo();
 
