@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configs
-  file_name="labirinto"
+  file_name="exemplo06"
 # No need to change these below
   extension_out="exe"
   extension_in="c++"
